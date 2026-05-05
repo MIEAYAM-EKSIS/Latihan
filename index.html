@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asesmen Akhir Jenjang SD – IPAS 2025/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #0ea5e9;
+    --sky-dark: #0369a1;
+    --green: #22c55e;
+    --green-dark: #15803d;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #bae6fd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 10% 20%, #e0f2fe 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, #dcfce7 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, #fef9c3 0%, transparent 60%);
+    min-height: 100vh;
+    color: var(--text);
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 50%, #1e40af 100%);
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  header p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 1.2rem;
+  }
+  .meta-pills {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+  }
+  .meta-pills span {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(14,165,233,0.1);
+  }
+  .progress-info {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.82rem; font-weight: 700; color: var(--sky-dark);
+  }
+  .progress-bar-outer {
+    background: #e0f2fe;
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sky), var(--green));
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  /* SECTION HEADING */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2rem 0 1rem;
+  }
+  .section-icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .section-head h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .section-head h2 span {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 0.1rem;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    border: 2px solid #e0f2fe;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(14,165,233,0.07);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 6px 24px rgba(14,165,233,0.14); }
+
+  .q-num {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--sky), var(--sky-dark));
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 0.85rem;
+    flex-shrink: 0;
+  }
+  .q-level {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .l1 { background: #dcfce7; color: #166534; }
+  .l2 { background: #fef9c3; color: #854d0e; }
+  .l3 { background: #fee2e2; color: #991b1b; }
+
+  .q-text {
+    font-size: 0.97rem;
+    font-weight: 700;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 0.55rem; }
+  .option {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #f8fafc;
+    user-select: none;
+  }
+  .option:hover { border-color: var(--sky); background: #e0f2fe; }
+  .option.selected { border-color: var(--sky); background: #e0f2fe; }
+  .option.correct { border-color: var(--green); background: #dcfce7; color: #14532d; }
+  .option.wrong { border-color: var(--red); background: #fee2e2; color: #7f1d1d; }
+  .option-key {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; min-width: 24px;
+    border-radius: 7px;
+    background: #e2e8f0;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #475569;
+    transition: all 0.18s;
+  }
+  .option.selected .option-key { background: var(--sky); color: white; }
+  .option.correct .option-key { background: var(--green); color: white; }
+  .option.wrong .option-key { background: var(--red); color: white; }
+
+  .feedback {
+    margin-top: 0.85rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.benar { background: #dcfce7; color: #14532d; border-left: 4px solid var(--green); }
+  .feedback.salah { background: #fee2e2; color: #7f1d1d; border-left: 4px solid var(--red); }
+
+  /* RESULT */
+  #result-box {
+    background: linear-gradient(135deg, #0369a1, #1e40af);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
+    display: none;
+    box-shadow: 0 12px 40px rgba(3,105,161,0.4);
+  }
+  #result-box h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  #score-display {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Baloo 2', cursive;
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  #score-msg { font-size: 1rem; opacity: 0.85; margin-bottom: 1.5rem; }
+  .result-stats {
+    display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .stat-pill {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--sky), var(--sky-dark));
+    color: white;
+    box-shadow: 0 4px 16px rgba(14,165,233,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(14,165,233,0.5); }
+  .btn-white {
+    background: white;
+    color: var(--sky-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 0.75rem;
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  .submit-wrap {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* color themes per section */
+  .s1 .section-icon { background: #e0f2fe; }
+  .s2 .section-icon { background: #dcfce7; }
+  .s3 .section-icon { background: #fef9c3; }
+  .s4 .section-icon { background: #fce7f3; }
+  .s5 .section-icon { background: #ede9fe; }
+  .s6 .section-icon { background: #ffedd5; }
+  .s7 .section-icon { background: #e0f2fe; }
+  .s8 .section-icon { background: #f0fdf4; }
+
+  @media (max-width: 500px) {
+    header { padding: 1.5rem 1rem 1rem; }
+    .card { padding: 1.2rem; }
+    .option { font-size: 0.85rem; }
+    #score-display { font-size: 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">📚 Kota Samarinda · TP 2025/2026</div>
+  <h1>Asesmen Akhir Jenjang<br>Sekolah Dasar – IPAS</h1>
+  <p>Kurikulum Merdeka · 40 Soal Pilihan Ganda</p>
+  <div class="meta-pills">
+    <span>🌿 IPA & IPS Terpadu</span>
+    <span>📝 40 Soal</span>
+    <span>🎯 Pilihan Ganda</span>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-info">
+    <span id="progress-text">0 dari 40 soal dijawab</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progress-bar"></div>
+  </div>
+</div>
+
+<main>
+
+<!-- ===== BAGIAN 1: SISTEM ORGAN TUBUH ===== -->
+<div class="section-head s1">
+  <div class="section-icon">🫁</div>
+  <h2>Sistem Organ Tubuh Manusia <span>Soal No. 1–4 · Fase C / Kelas V</span></h2>
+</div>
+
+<div class="card" data-q="1" data-answer="B">
+  <div><span class="q-num">1</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar sistem organ pernapasan berikut. Organ yang ditunjuk oleh tanda panah berfungsi sebagai tempat pertukaran oksigen (O₂) dan karbon dioksida (CO₂) antara udara dan darah. Organ apakah yang dimaksud?</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Trakea</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Alveolus</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Bronkus</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Diafragma</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Alveolus adalah kantong udara kecil di paru-paru tempat pertukaran O₂ dan CO₂.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Alveolus</strong> – tempat pertukaran gas di paru-paru.</div>
+</div>
+
+<div class="card" data-q="2" data-answer="C">
+  <div><span class="q-num">2</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Rudi sering batuk berdahak, sesak napas, dan demam. Setelah diperiksa dokter, ternyata paru-paru Rudi mengalami infeksi oleh bakteri. Penyakit yang mungkin diderita Rudi adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Asma</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Influenza</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Pneumonia</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Bronkitis kronis</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Pneumonia adalah infeksi paru-paru yang disebabkan oleh bakteri, virus, atau jamur.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C. Pneumonia</strong> – infeksi paru-paru oleh bakteri.</div>
+</div>
+
+<div class="card" data-q="3" data-answer="D">
+  <div><span class="q-num">3</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Santi terbiasa tidur larut malam, jarang berolahraga, dan sering mengonsumsi makanan cepat saji. Dampak perilaku tidak sehat tersebut bagi tubuh Santi adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Tubuh menjadi lebih kuat dan bertenaga</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Daya tahan tubuh meningkat</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Pertumbuhan tulang semakin cepat</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Sistem imun melemah dan rentan terserang penyakit</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Pola hidup tidak sehat melemahkan sistem imun sehingga tubuh mudah sakit.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – pola hidup tidak sehat melemahkan sistem imun.</div>
+</div>
+
+<div class="card" data-q="4" data-answer="A">
+  <div><span class="q-num">4</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Berikut ini cara yang paling tepat untuk menjaga kesehatan organ pencernaan adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Makan teratur, banyak konsumsi sayur dan buah, serta minum air putih yang cukup</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Makan sebanyak mungkin agar tubuh kenyang sepanjang hari</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Menghindari semua jenis makanan berlemak tanpa terkecuali</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Minum minuman bersoda setiap hari agar pencernaan lancar</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Pola makan teratur dengan gizi seimbang dan cukup air adalah kunci kesehatan pencernaan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – makan teratur, sayur, buah, dan air putih.</div>
+</div>
+
+<!-- ===== BAGIAN 2: EKOSISTEM ===== -->
+<div class="section-head s2">
+  <div class="section-icon">🌿</div>
+  <h2>Rantai Makanan & Siklus Air <span>Soal No. 5–9 · Fase C / Kelas V</span></h2>
+</div>
+
+<div class="card" data-q="5" data-answer="B">
+  <div><span class="q-num">5</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan rantai makanan berikut: Padi → Tikus → Ular → Elang. Dalam rantai makanan tersebut, tikus berperan sebagai …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Produsen</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Konsumen I</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Konsumen II</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Pengurai</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Tikus memakan padi (produsen), sehingga tikus adalah konsumen tingkat I.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Konsumen I</strong> karena tikus langsung memakan padi.</div>
+</div>
+
+<div class="card" data-q="6" data-answer="C">
+  <div><span class="q-num">6</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Dalam ekosistem sawah terdapat rantai makanan: Padi → Belalang → Katak → Ular. Jika populasi belalang (konsumen I) berkurang drastis karena pemburuan liar, akibat yang paling tepat adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Populasi padi berkurang, populasi katak bertambah</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Populasi ular bertambah, populasi padi berkurang</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Populasi padi bertambah, populasi katak dan ular berkurang</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Semua populasi dalam ekosistem bertambah merata</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Belalang berkurang → padi tidak dimakan → padi bertambah; katak kekurangan makanan → berkurang; ular juga berkurang.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – padi bertambah, katak & ular berkurang.</div>
+</div>
+
+<div class="card" data-q="7" data-answer="D">
+  <div><span class="q-num">7</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Berikut ini perilaku yang dapat merusak ekosistem adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Menanam pohon di lahan kosong</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Membuat terasering di lahan miring</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Melakukan daur ulang sampah plastik</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Membuang limbah pabrik langsung ke sungai</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Membuang limbah ke sungai merusak ekosistem air dan membunuh organisme di dalamnya.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – membuang limbah ke sungai merusak ekosistem.</div>
+</div>
+
+<div class="card" data-q="8" data-answer="B">
+  <div><span class="q-num">8</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Perhatikan tahapan siklus air berikut: (1) Evaporasi, (2) Kondensasi, (3) Presipitasi, (4) Infiltrasi. Urutan tahapan siklus air yang benar dari awal hingga air kembali ke tanah adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> 2 – 1 – 3 – 4</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> 1 – 2 – 3 – 4</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> 3 – 1 – 2 – 4</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> 4 – 3 – 2 – 1</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Urutan siklus air: Evaporasi (penguapan) → Kondensasi (pembentukan awan) → Presipitasi (hujan) → Infiltrasi (meresap ke tanah).</div>
+  <div class="feedback salah">❌ Kurang tepat. Urutan yang benar adalah <strong>B: 1–2–3–4</strong> (Evaporasi→Kondensasi→Presipitasi→Infiltrasi).</div>
+</div>
+
+<div class="card" data-q="9" data-answer="A">
+  <div><span class="q-num">9</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Di lingkungan sekitar kita terdapat berbagai sumber air. Berikut ini yang termasuk sumber air alami di lingkungan adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Mata air, sungai, dan danau</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Bendungan, irigasi, dan sumur bor</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> PDAM, tangki air, dan kolam renang</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Akuarium, bak mandi, dan waduk buatan</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Mata air, sungai, dan danau adalah sumber air alami yang terbentuk secara alamiah.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – mata air, sungai, dan danau adalah sumber air alami.</div>
+</div>
+
+<!-- ===== BAGIAN 3: BUNYI & CAHAYA ===== -->
+<div class="section-head s3">
+  <div class="section-icon">🔦</div>
+  <h2>Bunyi dan Cahaya <span>Soal No. 10–11 · Fase C / Kelas V</span></h2>
+</div>
+
+<div class="card" data-q="10" data-answer="C">
+  <div><span class="q-num">10</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Seorang anak berteriak di dekat dinding tebing dan mendengar suaranya kembali beberapa saat kemudian. Sifat bunyi yang diterapkan dalam peristiwa tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Bunyi merambat melalui zat padat</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Bunyi dapat diserap oleh benda lunak</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Bunyi dapat dipantulkan oleh permukaan keras</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Bunyi merambat melalui ruang hampa</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Gema terjadi karena bunyi dipantulkan oleh permukaan keras seperti tebing atau tembok.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – bunyi dapat dipantulkan (gema/gaung).</div>
+</div>
+
+<div class="card" data-q="11" data-answer="A">
+  <div><span class="q-num">11</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar berikut: sebuah pensil dimasukkan ke dalam gelas berisi air dan terlihat pensil tampak patah/bengkok. Sifat cahaya yang ditunjukkan gambar tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Pembiasan cahaya</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Pemantulan cahaya</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Dispersi cahaya</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Interferensi cahaya</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Pensil tampak patah karena cahaya dibiaskan saat melewati dua medium berbeda (udara dan air).</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A. Pembiasan cahaya</strong> – cahaya berbelok saat melewati dua medium berbeda.</div>
+</div>
+
+<!-- ===== BAGIAN 4: ENERGI ===== -->
+<div class="section-head s4">
+  <div class="section-icon">⚡</div>
+  <h2>Energi & Perubahan Iklim <span>Soal No. 12–16 · Fase C / Kelas V</span></h2>
+</div>
+
+<div class="card" data-q="12" data-answer="D">
+  <div><span class="q-num">12</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Berikut ini sikap yang paling tepat dalam menghemat energi listrik di rumah adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Membiarkan lampu menyala saat tidur</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Menggunakan AC sepanjang hari meskipun cuaca tidak panas</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Meninggalkan charger tetap tersambung ke stop kontak</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Mematikan lampu dan peralatan elektronik saat tidak digunakan</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Mematikan peralatan yang tidak digunakan adalah cara paling efektif menghemat energi.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – matikan lampu dan elektronik saat tidak dipakai.</div>
+</div>
+
+<div class="card" data-q="13" data-answer="B">
+  <div><span class="q-num">13</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Perhatikan tabel sumber energi alternatif berikut. Pasangan sumber energi alternatif dan manfaatnya yang paling tepat adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Energi angin – menggerakkan turbin untuk menghasilkan panas</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Energi surya – panel surya mengubah sinar matahari menjadi listrik</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Biogas – dihasilkan dari pembakaran batu bara</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Energi panas bumi – dihasilkan dari ombak laut</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Panel surya (solar cell) mengubah energi cahaya matahari menjadi energi listrik.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B</strong> – panel surya mengubah sinar matahari menjadi listrik.</div>
+</div>
+
+<div class="card" data-q="14" data-answer="C">
+  <div><span class="q-num">14</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Perhatikan gambar setrika listrik. Perubahan energi yang terjadi pada setrika listrik tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Energi kimia → energi listrik</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Energi cahaya → energi panas</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Energi listrik → energi panas</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Energi gerak → energi listrik</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Setrika listrik mengubah energi listrik menjadi energi panas untuk melicinkan pakaian.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C. Energi listrik → energi panas</strong>.</div>
+</div>
+
+<div class="card" data-q="15" data-answer="A">
+  <div><span class="q-num">15</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Perhatikan gambar kincir angin (turbin angin). Manfaat sumber energi angin yang paling tepat adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Menghasilkan listrik yang ramah lingkungan dan terbarukan</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Menghasilkan bahan bakar minyak untuk kendaraan</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Menghasilkan gas LPG untuk memasak</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Menyimpan air tanah agar tidak kering</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Turbin angin mengubah energi angin menjadi energi listrik yang ramah lingkungan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – menghasilkan listrik yang ramah lingkungan.</div>
+</div>
+
+<div class="card" data-q="16" data-answer="D">
+  <div><span class="q-num">16</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Perubahan iklim semakin mengancam kehidupan di bumi. Upaya mitigasi perubahan iklim yang paling tepat dapat dilakukan oleh siswa sekolah dasar adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Menggunakan kendaraan bermotor setiap hari untuk pergi ke sekolah</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Membakar sampah plastik di halaman rumah</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Menggunakan AC sepanjang hari di sekolah</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Berjalan kaki atau naik sepeda, menanam pohon, dan memilah sampah</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Berjalan kaki, bersepeda, menanam pohon, dan memilah sampah adalah upaya mitigasi yang bisa dilakukan siswa.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – berjalan kaki, menanam pohon, dan memilah sampah.</div>
+</div>
+
+<!-- ===== BAGIAN 5: TATA SURYA ===== -->
+<div class="section-head s5">
+  <div class="section-icon">🪐</div>
+  <h2>Tata Surya, Rotasi & Revolusi Bumi <span>Soal No. 17–20 · Fase C / Kelas VI</span></h2>
+</div>
+
+<div class="card" data-q="17" data-answer="C">
+  <div><span class="q-num">17</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar susunan planet dalam tata surya. Urutan planet dari yang paling dekat hingga paling jauh dari Matahari adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Merkurius, Venus, Bumi, Saturnus, Mars, Jupiter, Uranus, Neptunus</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Venus, Merkurius, Bumi, Mars, Jupiter, Saturnus, Uranus, Neptunus</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Merkurius, Venus, Bumi, Mars, Jupiter, Saturnus, Uranus, Neptunus</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Merkurius, Bumi, Venus, Mars, Jupiter, Saturnus, Neptunus, Uranus</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Urutan 8 planet: Merkurius – Venus – Bumi – Mars – Jupiter – Saturnus – Uranus – Neptunus.</div>
+  <div class="feedback salah">❌ Kurang tepat. Urutan yang benar adalah <strong>C</strong>: Merkurius, Venus, Bumi, Mars, Jupiter, Saturnus, Uranus, Neptunus.</div>
+</div>
+
+<div class="card" data-q="18" data-answer="B">
+  <div><span class="q-num">18</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Sebuah planet memiliki ciri-ciri: ukurannya terbesar dalam tata surya, memiliki bintik merah raksasa akibat badai yang sudah berlangsung ratusan tahun, dan dikelilingi oleh banyak bulan. Planet tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Saturnus</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Jupiter</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Uranus</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Neptunus</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Jupiter adalah planet terbesar dengan Bintik Merah Raksasa dan memiliki lebih dari 90 bulan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Jupiter</strong> – planet terbesar dengan bintik merah raksasa.</div>
+</div>
+
+<div class="card" data-q="19" data-answer="A">
+  <div><span class="q-num">19</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Sistem penanggalan Hijriah (kalender Islam) didasarkan pada peredaran bulan mengelilingi bumi. Pengaruh gerakan bulan yang mendasari sistem penanggalan Hijriah adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Revolusi bulan terhadap bumi menghasilkan perhitungan bulan dalam setahun</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Rotasi bumi yang menghasilkan pergantian siang dan malam</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Revolusi bumi terhadap matahari menghasilkan empat musim</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Rotasi bulan menghasilkan pasang surut air laut</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Kalender Hijriah menggunakan revolusi bulan (29–30 hari/bulan) sebagai dasar perhitungan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – kalender Hijriah berdasarkan revolusi bulan.</div>
+</div>
+
+<div class="card" data-q="20" data-answer="C">
+  <div><span class="q-num">20</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Di beberapa negara belahan bumi utara, pada bulan Juni–Agustus mengalami musim panas, sedangkan bulan Desember–Februari mengalami musim dingin. Pengaruh revolusi bumi yang menyebabkan perbedaan musim tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Perbedaan kecepatan rotasi bumi di berbagai wilayah</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Perubahan jarak bumi ke bintang-bintang</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Kemiringan sumbu bumi saat mengelilingi matahari menyebabkan perbedaan intensitas cahaya matahari</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Pergerakan matahari mengelilingi bumi setiap tahun</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Kemiringan sumbu bumi (23,5°) saat revolusi menyebabkan perbedaan sudut datang sinar matahari sehingga terjadi perbedaan musim.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – kemiringan sumbu bumi menyebabkan perbedaan intensitas cahaya matahari.</div>
+</div>
+
+<!-- ===== BAGIAN 6: GEOGRAFI ===== -->
+<div class="section-head s6">
+  <div class="section-icon">🗺️</div>
+  <h2>Letak & Kondisi Geografis Indonesia <span>Soal No. 21–25 · Fase C / Kelas V–VI</span></h2>
+</div>
+
+<div class="card" data-q="21" data-answer="B">
+  <div><span class="q-num">21</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar peta Indonesia. Berdasarkan letak astronomisnya, wilayah Indonesia berada di antara …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> 6°LU – 11°LS dan 95°BT – 141°BT</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> 6°LU – 11°LS dan 95°BT – 141°BT ✓ (pilihan ini benar)</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> 11°LU – 6°LS dan 141°BT – 95°BB</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> 6°LS – 11°LU dan 95°BB – 141°BB</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Indonesia terletak di 6°LU – 11°LS dan 95°BT – 141°BT.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B</strong>: 6°LU – 11°LS dan 95°BT – 141°BT.</div>
+</div>
+
+<div class="card" data-q="22" data-answer="C">
+  <div><span class="q-num">22</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Pada peta dengan skala 1:5.000.000, jarak antara kota A dan kota B pada peta adalah 3 cm. Berapa jarak sebenarnya antara kota A dan kota B?</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> 15 km</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> 50 km</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> 150 km</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> 1.500 km</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Jarak sebenarnya = 3 cm × 5.000.000 = 15.000.000 cm = 150 km.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C. 150 km</strong>. Jarak = 3 cm × 5.000.000 = 150 km.</div>
+</div>
+
+<div class="card" data-q="23" data-answer="D">
+  <div><span class="q-num">23</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Informasi: Indonesia mengalami angin muson barat (Oktober–April) yang membawa banyak uap air sehingga terjadi musim hujan. Kegiatan yang paling sesuai dilakukan petani berdasarkan kondisi angin muson barat tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Memanen hasil kebun dan menjemur padi di halaman</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Membiarkan lahan kosong tanpa ditanami</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Membakar lahan untuk membuka perkebunan baru</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Menanam padi karena curah hujan tinggi mendukung pertumbuhan tanaman</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Musim hujan adalah waktu yang tepat untuk menanam padi karena kebutuhan air terpenuhi.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – menanam padi saat musim hujan.</div>
+</div>
+
+<div class="card" data-q="24" data-answer="B">
+  <div><span class="q-num">24</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar sebuah wilayah datar yang luas di pinggir pantai dengan tanah yang subur dan banyak digunakan untuk pertanian. Bentang alam yang dimaksud adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Pegunungan</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Dataran rendah</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Plato (dataran tinggi)</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Lembah</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Dataran rendah adalah wilayah datar di ketinggian rendah yang cocok untuk pertanian.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Dataran rendah</strong>.</div>
+</div>
+
+<div class="card" data-q="25" data-answer="A">
+  <div><span class="q-num">25</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Saat menggunakan Google Maps, Budi melihat tiga rute menuju sekolah. Rute 1 berwarna merah (macet, 45 menit), Rute 2 berwarna kuning (padat, 30 menit), Rute 3 berwarna hijau (lancar, 20 menit). Rute yang paling efisien adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Rute 3 karena berwarna hijau dan membutuhkan waktu paling singkat</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Rute 1 karena merupakan jalan utama yang paling besar</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Rute 2 karena berada di tengah antara macet dan lancar</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Semua rute sama efisiennya</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Warna hijau di Google Maps menandakan lalu lintas lancar dengan waktu tempuh tercepat.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A. Rute 3</strong> – warna hijau = lancar, waktu paling singkat.</div>
+</div>
+
+<!-- ===== BAGIAN 7: SEJARAH ===== -->
+<div class="section-head s7">
+  <div class="section-icon">🏛️</div>
+  <h2>Sejarah Perjuangan Pahlawan <span>Soal No. 26–30 · Fase C / Kelas V–VI</span></h2>
+</div>
+
+<div class="card" data-q="26" data-answer="C">
+  <div><span class="q-num">26</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Biografi singkat: Sultan Aji Muhammad Idris adalah pahlawan dari Kesultanan Kutai Kartanegara di Kalimantan Timur yang melawan penjajahan dengan cara mempertahankan kedaulatan kerajaan dan menolak campur tangan asing dalam urusan dalam negeri kerajaan. Strategi perlawanan yang dilakukan pahlawan tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Mengadakan perjanjian damai dengan penjajah</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Melakukan perang gerilya di hutan-hutan Kalimantan</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Mempertahankan kedaulatan dan menolak campur tangan asing dalam pemerintahan</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Bekerja sama dengan penjajah untuk membangun kerajaan</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Strategi utama Sultan adalah mempertahankan kedaulatan dengan menolak intervensi asing.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – mempertahankan kedaulatan dan menolak campur tangan asing.</div>
+</div>
+
+<div class="card" data-q="27" data-answer="B">
+  <div><span class="q-num">27</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar tokoh pahlawan Proklamasi yang dikenal sebagai arsitek dan konseptor naskah Proklamasi Kemerdekaan Indonesia 1945. Peran tokoh tersebut dalam kemerdekaan Indonesia adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Membacakan teks proklamasi kemerdekaan</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Merumuskan dan menandatangani naskah Proklamasi bersama Soekarno</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Memimpin pasukan militer dalam perang kemerdekaan</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Menjadi ketua BPUPKI yang menyusun dasar negara</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Mohammad Hatta merumuskan dan menandatangani naskah Proklamasi bersama Soekarno pada 17 Agustus 1945.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B</strong> – merumuskan dan menandatangani naskah Proklamasi.</div>
+</div>
+
+<div class="card" data-q="28" data-answer="D">
+  <div><span class="q-num">28</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan tabel perjuangan diplomasi berikut: Perjanjian yang ditandatangani pada 18 Desember 1949, mengakui kedaulatan Republik Indonesia Serikat (RIS) oleh Belanda, sebagai hasil dari Konferensi Meja Bundar (KMB) di Den Haag. Perjanjian tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Perjanjian Linggarjati</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Perjanjian Renville</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Perjanjian Roem-Royen</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Perjanjian KMB (Konferensi Meja Bundar)</div>
+  </div>
+  <div class="feedback benar">✅ Benar! KMB menghasilkan pengakuan kedaulatan Indonesia oleh Belanda pada 27 Desember 1949.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D. KMB</strong> – pengakuan kedaulatan Indonesia oleh Belanda.</div>
+</div>
+
+<div class="card" data-q="29" data-answer="A">
+  <div><span class="q-num">29</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Di sekolah, teman sekelas Dani sedang mengalami kesulitan memahami pelajaran matematika. Dani dengan sukarela mengajarkan temannya tanpa mengharapkan imbalan. Sikap Dani mencerminkan nilai juang pahlawan, yaitu …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Rela berkorban dan peduli terhadap sesama</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Berani menghadapi musuh dengan kekuatan fisik</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Pantang menyerah dalam mempertahankan wilayah</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Cinta tanah air dengan menggunakan produk dalam negeri</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Sikap Dani mencerminkan nilai rela berkorban dan peduli sesama yang diteladankan para pahlawan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – rela berkorban dan peduli terhadap sesama.</div>
+</div>
+
+<div class="card" data-q="30" data-answer="C">
+  <div><span class="q-num">30</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Selama masa penjajahan Belanda, sistem tanam paksa (Cultuurstelsel) diterapkan di Indonesia. Dampak paling signifikan dari sistem penjajahan tersebut terhadap rakyat Indonesia adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Rakyat Indonesia menjadi kaya raya karena hasil pertanian meningkat</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Infrastruktur Indonesia berkembang pesat dan merata</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Rakyat menderita kelaparan, kemiskinan, dan kehilangan hak atas tanah</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Pendidikan rakyat Indonesia meningkat drastis</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Tanam paksa menyebabkan penderitaan masif: kelaparan, kemiskinan, dan penghisapan hak rakyat.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – rakyat menderita kelaparan dan kemiskinan akibat tanam paksa.</div>
+</div>
+
+<!-- ===== BAGIAN 8: BUDAYA & EKONOMI ===== -->
+<div class="section-head s8">
+  <div class="section-icon">🎭</div>
+  <h2>Budaya, Kebhinekaan & Ekonomi <span>Soal No. 31–40 · Fase C / Kelas V–VI</span></h2>
+</div>
+
+<div class="card" data-q="31" data-answer="B">
+  <div><span class="q-num">31</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan gambar pakaian adat dan rumah adat berikut: Pakaian adat yang disebut "Sapei Sapaq" dan rumah adat "Lamin". Pakaian dan rumah adat tersebut berasal dari daerah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Sulawesi Selatan</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Kalimantan Timur (Suku Dayak)</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Papua</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Sumatera Barat</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Sapei Sapaq adalah pakaian adat dan Lamin adalah rumah adat Suku Dayak dari Kalimantan Timur.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Kalimantan Timur</strong> – Suku Dayak.</div>
+</div>
+
+<div class="card" data-q="32" data-answer="D">
+  <div><span class="q-num">32</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Teks narasi: Upacara Erau adalah pesta adat Kesultanan Kutai Kartanegara di Kalimantan Timur yang dirayakan secara turun-temurun. Upacara ini diisi dengan berbagai ritual, pertunjukan seni budaya, dan doa bersama sebagai bentuk syukur. Nilai yang dapat diterapkan dari upacara adat Erau adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Nilai individualistis dan persaingan antar suku</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Nilai modernisasi dengan meninggalkan adat lama</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Nilai keseragaman budaya di seluruh Indonesia</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Nilai kebersamaan, rasa syukur, dan pelestarian budaya lokal</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Upacara Erau mencerminkan nilai kebersamaan, rasa syukur, dan pelestarian budaya leluhur.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – kebersamaan, syukur, dan pelestarian budaya lokal.</div>
+</div>
+
+<div class="card" data-q="33" data-answer="B">
+  <div><span class="q-num">33</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Globalisasi membawa dampak masuknya budaya asing ke Indonesia melalui internet dan media sosial. Cara yang paling tepat untuk menyikapi dampak globalisasi tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Meniru semua budaya asing tanpa menyaring</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Menyaring budaya asing dengan tetap menjaga dan melestarikan budaya lokal</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Menolak semua pengaruh asing dan menutup diri dari dunia</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Membiarkan budaya lokal tergantikan oleh budaya asing</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Kita perlu menyaring budaya asing yang positif sambil tetap menjaga budaya lokal.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B</strong> – menyaring budaya asing dan melestarikan budaya lokal.</div>
+</div>
+
+<div class="card" data-q="34" data-answer="C">
+  <div><span class="q-num">34</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan tabel berikut. Tari Kancet Papatai dari Kalimantan Timur ditampilkan untuk menggambarkan keberanian prajurit dalam medan perang. Berdasarkan fungsinya, tari tersebut termasuk kelompok tarian …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Tari ritual keagamaan</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Tari hiburan pergaulan</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Tari perang / heroik</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Tari penyambutan tamu</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Kancet Papatai adalah tarian perang khas Suku Dayak Kenyah yang menggambarkan keberanian prajurit.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C. Tari perang/heroik</strong>.</div>
+</div>
+
+<div class="card" data-q="35" data-answer="D">
+  <div><span class="q-num">35</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Ilustrasi: Di sebuah sekolah terdapat siswa dari berbagai suku (Dayak, Jawa, Banjar, dan Bugis). Terjadi konflik kecil akibat perbedaan cara bermain saat istirahat. Solusi terbaik berdasarkan prinsip kebhinekaan untuk menyelesaikan konflik tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Meminta satu suku untuk mengikuti cara bermain suku lain</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Memisahkan kelompok bermain berdasarkan suku masing-masing</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Membiarkan konflik berlanjut tanpa campur tangan guru</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Berdialog, saling menghormati perbedaan, dan membuat aturan bermain bersama</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Prinsip kebhinekaan mendorong dialog, saling menghormati, dan mencari kesepakatan bersama.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – dialog, saling menghormati, dan aturan bersama.</div>
+</div>
+
+<div class="card" data-q="36" data-answer="C">
+  <div><span class="q-num">36</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan alur distribusi barang: Produsen → Agen → Pengecer → Konsumen. Peran agen dalam rantai distribusi tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Memproduksi barang dalam jumlah besar</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Menjual langsung kepada konsumen akhir</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Menjadi perantara antara produsen dan pengecer dalam distribusi barang</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Menggunakan barang untuk kebutuhan pribadi</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Agen adalah perantara yang menghubungkan produsen dengan pengecer dalam rantai distribusi.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – agen sebagai perantara produsen dan pengecer.</div>
+</div>
+
+<div class="card" data-q="37" data-answer="B">
+  <div><span class="q-num">37</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Perhatikan daftar profesi: (1) Petani, (2) Dokter, (3) Nelayan, (4) Guru, (5) Pengrajin kayu. Profesi yang termasuk sektor jasa adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Petani, Nelayan, dan Pengrajin kayu</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Dokter dan Guru</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Petani dan Nelayan</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Nelayan, Guru, dan Pengrajin kayu</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Dokter dan Guru termasuk sektor jasa karena memberikan layanan, bukan menghasilkan barang.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>B. Dokter dan Guru</strong> – keduanya termasuk sektor jasa.</div>
+</div>
+
+<div class="card" data-q="38" data-answer="A">
+  <div><span class="q-num">38</span><span class="q-level l2">L2</span></div>
+  <div class="q-text">Perhatikan gambar wilayah pesisir pantai dengan laut yang kaya ikan dan ekosistem mangrove yang subur. Kegiatan ekonomi unggulan yang paling tepat dikembangkan di wilayah pesisir tersebut adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Penangkapan ikan, budidaya tambak, dan wisata bahari</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Pertambangan batu bara dan penebangan hutan</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Pertanian padi dan perkebunan sawit</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Industri tekstil dan pengolahan logam</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Wilayah pesisir paling cocok untuk perikanan, budidaya tambak, dan wisata bahari.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>A</strong> – penangkapan ikan, budidaya tambak, dan wisata bahari.</div>
+</div>
+
+<div class="card" data-q="39" data-answer="C">
+  <div><span class="q-num">39</span><span class="q-level l1">L1</span></div>
+  <div class="q-text">Teks: Bu Sari memiliki UMKM kue tradisional dan mulai berjualan melalui toko online (marketplace). Keuntungan menggunakan toko online bagi UMKM Bu Sari adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Biaya produksi menjadi jauh lebih mahal</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Harus membayar sewa toko fisik yang besar</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Jangkauan pasar lebih luas tanpa terbatas lokasi geografis</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Tidak memerlukan izin usaha sama sekali</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Toko online memungkinkan UMKM menjangkau pelanggan di mana saja tanpa batas geografis.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>C</strong> – jangkauan pasar lebih luas tanpa batas geografis.</div>
+</div>
+
+<div class="card" data-q="40" data-answer="D">
+  <div><span class="q-num">40</span><span class="q-level l3">L3</span></div>
+  <div class="q-text">Perhatikan tabel anggaran bulanan keluarga Pak Budi (pendapatan Rp 3.000.000): Makan = Rp 1.200.000 | Listrik & Air = Rp 300.000 | Transportasi = Rp 400.000 | Hiburan = Rp 800.000 | Tabungan = Rp 300.000. Berdasarkan prinsip ekonomi, pengeluaran yang perlu dievaluasi/dikurangi adalah …</div>
+  <div class="options">
+    <div class="option" data-opt="A"><span class="option-key">A</span> Pengeluaran untuk makan karena terlalu besar</div>
+    <div class="option" data-opt="B"><span class="option-key">B</span> Pengeluaran untuk listrik & air karena tidak penting</div>
+    <div class="option" data-opt="C"><span class="option-key">C</span> Pengeluaran untuk transportasi karena bisa dihapus</div>
+    <div class="option" data-opt="D"><span class="option-key">D</span> Pengeluaran untuk hiburan karena terlalu besar dan tabungan perlu ditingkatkan</div>
+  </div>
+  <div class="feedback benar">✅ Benar! Hiburan Rp 800.000 (27% pendapatan) terlalu besar untuk kebutuhan sekunder, sementara tabungan Rp 300.000 perlu ditingkatkan.</div>
+  <div class="feedback salah">❌ Kurang tepat. Jawaban yang benar adalah <strong>D</strong> – kurangi hiburan dan tingkatkan tabungan.</div>
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-wrap">
+  <button class="btn btn-primary" onclick="submitAll()">🎯 Lihat Hasil Akhir</button>
+</div>
+
+<!-- RESULT -->
+<div id="result-box">
+  <h2>🎉 Hasil Asesmen</h2>
+  <div id="score-display">0</div>
+  <div id="score-msg">Pesan hasil</div>
+  <div class="result-stats">
+    <div class="stat-pill">✅ Benar: <span id="res-benar">0</span></div>
+    <div class="stat-pill">❌ Salah: <span id="res-salah">0</span></div>
+    <div class="stat-pill">⬜ Kosong: <span id="res-kosong">0</span></div>
+  </div>
+  <button class="btn btn-white" onclick="resetAll()">🔄 Ulangi Latihan</button>
+</div>
+
+</main>
+
+<script>
+  const answers = {};
+  const correct = {};
+  let answered = 0;
+
+  // collect correct answers
+  document.querySelectorAll('.card[data-answer]').forEach(card => {
+    correct[card.dataset.q] = card.dataset.answer;
+  });
+
+  document.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', function() {
+      const card = this.closest('.card');
+      const qNum = card.dataset.q;
+
+      // Remove previous selection
+      card.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      this.classList.add('selected');
+
+      if (!answers[qNum]) answered++;
+      answers[qNum] = this.dataset.opt;
+
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    const pct = Math.round((answered / 40) * 100);
+    document.getElementById('progress-text').textContent = `${answered} dari 40 soal dijawab`;
+    document.getElementById('progress-pct').textContent = `${pct}%`;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  }
+
+  function submitAll() {
+    let benar = 0, salah = 0, kosong = 0;
+
+    document.querySelectorAll('.card[data-q]').forEach(card => {
+      const q = card.dataset.q;
+      const ans = answers[q];
+      const rightAns = correct[q];
+      const feedbackBenar = card.querySelector('.feedback.benar');
+      const feedbackSalah = card.querySelector('.feedback.salah');
+
+      card.querySelectorAll('.option').forEach(opt => {
+        if (opt.dataset.opt === rightAns) opt.classList.add('correct');
+        if (ans && opt.dataset.opt === ans && ans !== rightAns) opt.classList.add('wrong');
+      });
+
+      if (!ans) {
+        kosong++;
+        feedbackSalah.classList.add('show');
+      } else if (ans === rightAns) {
+        benar++;
+        feedbackBenar.classList.add('show');
+      } else {
+        salah++;
+        feedbackSalah.classList.add('show');
+      }
+    });
+
+    const score = Math.round((benar / 40) * 100);
+    document.getElementById('score-display').textContent = score;
+    document.getElementById('res-benar').textContent = benar;
+    document.getElementById('res-salah').textContent = salah;
+    document.getElementById('res-kosong').textContent = kosong;
+
+    let msg = '';
+    if (score >= 90) msg = '🌟 Luar Biasa! Kamu siap menghadapi ujian!';
+    else if (score >= 75) msg = '👍 Bagus! Terus tingkatkan lagi ya!';
+    else if (score >= 60) msg = '💪 Cukup baik, perlu lebih banyak berlatih.';
+    else msg = '📚 Semangat belajar! Ulangi materi dan coba lagi.';
+
+    document.getElementById('score-msg').textContent = msg;
+    const resultBox = document.getElementById('result-box');
+    resultBox.style.display = 'block';
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetAll() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    document.querySelectorAll('.option').forEach(o => {
+      o.classList.remove('selected', 'correct', 'wrong');
+    });
+    document.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    document.getElementById('result-box').style.display = 'none';
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
